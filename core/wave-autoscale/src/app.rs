@@ -1,3 +1,15 @@
+/**
+ * 이 파일은 App 구조체와 그 구현을 정의하고 있습니다.
+    App은 Wave Autoscale 애플리케이션의 주요 구성 요소를 관리합니다.
+ * 1. 구조체 정의: App 구조체는 애플리케이션의 주요 구성 요소를 멤버로 가지고 있습니다.
+    이에는 WaveConfig, DataLayer, MetricUpdater, ScalingComponentManager, ScalingPlannerManager 등이 포함됩니다.
+ * 2. 생성자 함수: new 함수는 App 인스턴스를 생성합니다.
+    이 함수는 WaveConfig와 DataLayer를 인자로 받아, 이를 기반으로 MetricUpdater, ScalingComponentManager, ScalingPlannerManager를 생성하고 초기화합니다.
+ * 3. 애플리케이션 실행 함수: run 함수는 애플리케이션을 실행합니다.
+    이 함수는 MetricUpdater를 중지하고, DataLayer에서 스케일링 컴포넌트와 스케일링 계획을 로드하여 ScalingComponentManager와 ScalingPlannerManager에 설정합니다.
+ * 4. 자동 스케일링 이력 관리 함수: run_autoscaling_history_cron_job 함수와 stop_autoscaling_history_cron_job 함수는 자동 스케일링 이력을 관리하는 작업을 시작하고 중지합니다.
+ * 5. 테스트용 함수: get_data_layer, get_scaling_component_manager, get_scaling_planner_manager 함수는 단위 테스트를 위해 제공되며, 각각 DataLayer, ScalingComponentManager, ScalingPlannerManager의 참조를 반환합니다.
+ */
 use crate::{
     metric_updater::{MetricUpdater, SharedMetricUpdater},
     scaling_component::{ScalingComponentManager, SharedScalingComponentManager},
